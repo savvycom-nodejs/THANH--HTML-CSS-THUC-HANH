@@ -1,0 +1,66 @@
+.container-fluid .rowtwo {
+  display: flex;
+  justify-content: space-around; }
+  .container-fluid .rowtwo .mot {
+    width: 70%;
+    height: auto; }
+    .container-fluid .rowtwo .mot .anhdau {
+      width: 100%;
+      height: 550px; }
+  .container-fluid .rowtwo .hai {
+    width: 30%;
+    height: auto;
+    margin-left: 20px; }
+  .container-fluid .rowtwo .imagefovorite {
+    display: flex;
+    height: 90px;
+    width: 100%;
+    margin-top: 20px; }
+    .container-fluid .rowtwo .imagefovorite .text {
+      margin-left: 50px;
+      width: auto;
+      height: 88px;
+      display: flex;
+      justify-content: center; }
+    .container-fluid .rowtwo .imagefovorite .imageanh .anh {
+      width: 80px;
+      height: 88px; }
+
+.container .row h1 {
+  text-align: center;
+  color: aqua; }
+.container .image-container {
+  display: flex; }
+  .container .image-container .divcon1 {
+    margin-right: 10px; }
+.container .row h2 {
+  text-align: center;
+  color: blue;
+  font-weight: 500; }
+
+.div_image {
+  position: relative; }
+
+.text-contai {
+  position: absolute;
+  bottom: 20px;
+  left: 25%;
+  color: whitesmoke;
+  font-weight: 800; }
+
+.container-fluid2 {
+  display: flex;
+  justify-content: center;
+  background-color: blueviolet; }
+  .container-fluid2 .editcenter {
+    width: 100%;
+    text-align: center; }
+
+.row th {
+  color: #4ba94b;
+  text-align: center; }
+.row td {
+  color: #a5a547;
+  text-align: center; }
+
+/*# sourceMappingURL=styleindex.css.map */
