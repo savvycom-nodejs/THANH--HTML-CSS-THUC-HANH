@@ -1,2 +1,4 @@
  ======>Tìm hiểu về: Asynchronous và Synchronous
 
+1.Tìm hiểu về Asynchronous:
+s
