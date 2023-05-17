@@ -1,4 +1,109 @@
  ======>Tìm hiểu về: Asynchronous và Synchronous
 
-1.Tìm hiểu về Asynchronous:
-s
+1.Tìm hiểu về Synchronous:
+----------------------------------------------------------
+Synchronous có nghĩa là xử lý đồng bộ, chương trình sẽ chạy theo từng bước và chỉ khi nào bước 1 thực hiện xong thì mới nhảy sang bước 2, khi nào chương trình này chạy xong mới nhảy 
+qua chương trình khác. Đây là nguyên tắc cơ bản trong lập trình mà bạn đã được học đó là khi biên dịch các đoạn mã thì trình biên dịch sẽ biên dịch theo thứ tự từ trên xuống dưới, 
+từ trái qua phải và chỉ khi nào biên dịch xong dòng thứ nhât mới nhảy sang dòng thứ hai, điều này sẽ sinh ra một trạng thái ta hay gọi là trạng thái chờ. Ví dụ trong quy trình sản xuất 
+dây chuyền công nghiệp được coi là một hệ thống xử lý đồng bộ.
+Ví dụ :
+console.log("Start")
+
+for(let i =0; i <20; i++){
+   console.log(i)}
+
+console.log("End") 
+-------
+KẾT QUẢ:
+ Start
+0...19
+ENd
+
+------------------------------------------------------------------
+ 2. Tìm hiểu về Asynchronous:
+
+Asynchronous là xử lý bất động bộ, nghĩa là chương trình có thể nhảy đi bỏ qua một bước nào đó, vì vậy Asynchronous được ví như một chương trình hoạt động không chặt chẽ 
+và không có quy trình nên việc quản lý rất khó khăn. Nếu một hàm A phải bắt buộc chạy trước hàm B thì với Asynchronous sẽ không thể đảm bảo nguyên tắc này luôn đúng.
+  Ví dụ:
+
+console.log("Start")
+setTimeout( ()=>{
+   console.log("Middle")},1000)
+
+console.log("End")
+----------
+Kết quả:
+
+Start
+End
+Middle
+
+3.================> JS thuộc loại nào ?
+
+Javascript là ngôn ngữ lập trình bất đồng bộ và chỉ chạy trên một luồng. Sự bất đồng bộ trong javascript xuất hiện khi nó thao tác với các WebAPI (ajax, setTimeout(), … ).
+ Khi một câu lệnh thao tác với WebAPI, nó sẽ mất một khoảng thời gian để chờ các dữ liệu trả về từ WebAPI, do đó ở trong luồng chính của javascript, nó sẽ ở trong trạng thái chờ. 
+Tuy nhiên chương trình sẽ không bỏ trống khoảng thời gian chờ đó, chương trình sẽ tiếp tục thực hiện các câu lệnh tiếp theo. Đó là lý do Javascript là ngôn ngữ bất đồng bộ.
+
+Ví dụ:
+
+console.log("Start")
+setTimeout( ()=>{
+   console.log("Middle")},1000)
+
+console.log("End")
+-----------
+Kết quả:
+
+Start
+End
+Middle
+
+
+4.==================>Tìm hiểu Promise trong JS? Tại sao cần promise? Cho ví dụ
+
+Khái niệm :
+Promise là một cơ chế trong JavaScript giúp bạn thực thi các tác vụ bất đồng bộ mà không rơi vào callback hell hay pyramid of doom, là tình trạng các hàm callback lồng vào nhau
+ ở quá nhiều tầng.
+
+Tại sao phaiar dùng Promise:
+
+Promise sẽ cải thiện và giải quyết vấn đề mà Callback Function gây ra có tên gọi Callback Hell
+
+
+
+5.================>Tìm hiểu Async/Await trong JS? Tại sao cần async/await? Cho ví dụ
+
+Async / Await là một tính năng của JavaScript giúp chúng ta làm việc với các hàm bất đồng bộ theo cách thú vị hơn và dễ hiểu hơn. Nó được xây dựng trên Promises và
+ tương thích với tất cả các Promise dựa trên API.
+
+Async - khai báo một hàm bất đồng bộ (async function someName(){...}).
+
+         -Tự động biến đổi một hàm thông thường thành một Promise.
+        - Khi gọi tới hàm async nó sẽ xử lý mọi thứ và được trả về kết quả trong hàm của nó.
+        - Async cho phép sử dụng Await.
+
+Await - tạm dừng việc thực hiện các hàm async. (Var result = await someAsyncCall ()😉.
+
+      - Khi được đặt trước một Promise, nó sẽ đợi cho đến khi Promise kết thúc và trả về kết quả.
+       -Await chỉ làm việc với Promises, nó không hoạt động với callbacks.
+       -Await chỉ có thể được sử dụng bên trong các function async.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
