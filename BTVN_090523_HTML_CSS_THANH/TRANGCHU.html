@@ -71,7 +71,7 @@
 
 			</div>
 
-			<div class="hai">
+			<div class="hai" id="thecha">
 
 				<div class="imagefovorite">
 					<div class="imageanh">
@@ -117,7 +117,33 @@
 						<p>NIght Phong cape</p>
 					</div>
 				</div>
+
+				<script>
+					const newTodo1 = document.createElement('div');
+					const newTodo2 = document.createElement('div');
+					const newTodo3 = document.createElement('div');
+					const newTodo4 = document.createElement('img');
+					const newTodo5 = document.createElement('p');
+
+					newTodo1.appendChild(newTodo2);
+					newTodo1.appendChild(newTodo3);
+					newTodo2.appendChild(newTodo4);
+					newTodo3.appendChild(newTodo5);
+
+					newTodo1.setAttribute("class", "imagefovorite");
+					newTodo2.setAttribute("class", "imageanh");
+					newTodo3.setAttribute("class", "text");
+					newTodo4.setAttribute("src", "images/h5.jpg");
+					newTodo4.setAttribute("class","anh");
+					newTodo5.innerText = "Đây là thẻ dc tạo bởi JS cao sieu ";
+					
+					let hihi=document.getElementById("thecha");
+					hihi.appendChild(newTodo1);
+
+				</script>
 			</div>
+
+
 		</div>
 
 	</div>
@@ -166,15 +192,15 @@
 					<tr>
 						<th>STT</th>
 						<th>Customers</th>
-						<th>Group registration from 10 <br/> customers</th>
-						<th>Group registration from 5  <br/>customers</th>
-						<th>Group registration from 2 <br/> customers</th>
+						<th>Group registration from 10 <br /> customers</th>
+						<th>Group registration from 5 <br />customers</th>
+						<th>Group registration from 2 <br /> customers</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>1</td>
-						<td>Customers 11 years old and<br/> up</td>
+						<td>Customers 11 years old and<br /> up</td>
 						<td>$20</td>
 						<td>$25</td>
 						<td>$30</td>

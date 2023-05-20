@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập tính chỉ sổ BMI</title>
+    <style type="text/css">
+        .Form_BMI {
+            background-color: aqua;
+            width: 500px;
+            height: 400px;
+            text-align: left;
+            display: block;
+            position: relative;
+        }
+
+        .title {
+            font-size: 36px;
+            text-align: center;
+        }
+
+        .chieucao {
+            flex: 1;
+        }
+
+        .div_chieucao,
+        .div_cannang {
+            margin-left: 20px;
+        }
+
+        .div_namnu {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-tinh {
+            background-color: blue;
+            border: 1;
+            font-size: 48px;
+        }
+
+        .btn-tinh:hover {
+            background-color: red;
+            border: 3;
+        }
+
+        .div_btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .div_ketqua {
+            background-color: blueviolet;
+            width: 500px;
+            height: 100px;
+            text-align: center;
+            margin-top: 20px;
+            font: optional;
+            font-size: larger;
+        }
+
+        .choketqua {
+            font-size: 48px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="post" class="Form_BMI">
+        <div class="title">CHỈ SỐ BMI</div>
+        <div class="div_chieucao">
+            <p>Chiều cao:</p>
+            <input type="number" name="chieucao" class="chieucao" placeholder="Nhập chiều cao(m)">
+        </div>
+        <div class="div_cannang">
+            <p>Cân nặng:</p>
+            <input type="number" name="cannang" placeholder="Nhập cân nặng(KG)" class="cannang">
+        </div>
+
+        <div class="div_namnu">
+            <div>Giới Tính</div>
+            <input type="radio" name="size" value="NAM" id="s">
+            <label for="s">NAM</label>
+            <input type="radio" name="size" value="NU" id="n">
+            <label for="n">NỮ</label>
+        </div>
+
+        <div class="div_btn">
+            <input type="button" value="TÍNH BMI" class="btn-tinh" id="tinh">
+        </div>
+
+        <div class="div_ketqua">
+            <div>KẾT QUẢ</div>
+            <div class="choketqua">0|Chưa xác định </div>
+        </div>
+
+
+    </form>
+    <script>
+        var click = document.getElementById("tinh");
+        click.onclick = function sukientinh() {
+            //lay ra cac the can thiet cho viec tinh toan
+            var chieucao = document.querySelector(".chieucao").value;
+            var cannang = document.querySelector(".cannang").value;
+            var ketqua = document.querySelector(".choketqua");
+            //tinh cho so BMI
+            var chiso = cannang / (chieucao * chieucao);
+            BMI=chiso.toFixed(2);
+            console.log(BMI);
+
+            //xem tac gia la nam hay nu
+            let elements = document.getElementsByName('size');
+            let len = elements.length;
+            let checkValue = '';
+            //SU ly su kien tinh toan 
+            for (let i = 0; i < len; i++) {
+                if (elements.item(i).checked) {
+                    checkValue = elements.item(i).value;
+                }
+            }
+            if (checkValue == "NAM") {
+                if (BMI < 20.7) {
+                    var text = "GẦY";
+                    ketqua.innerText=BMI+"|"+text;
+
+                }
+                if(BMI>=20.7 && BMI<26.4)
+                {
+                    var text = "Bình Thường";
+                    ketqua.innerText=BMI+"|"+text;
+                }
+                if(BMI>=26.4 && BMI<27.8)
+                {
+                    var text = "Thùa cân nhẹ";
+                    ketqua.innerText=BMI+"|"+text;
+                }
+                if(BMI>=27.8 && BMI<31.1)
+                {
+                    var text = "Trên lý tưởng";
+                    ketqua.innerText=BMI+"|"+text;
+                }
+                if(BMI>=31.1)
+                {
+                    var text = "Béo Phì";
+                    ketqua.innerText=BMI+"|"+text;
+                }
+            }
+
+
+
+            if (checkValue == "NU") {
+                console.log("đã xác nhận dối tg là nu");
+                if (BMI < 19.1) {
+                    var text = "GẦY";
+                    ketqua.innerText=BMI+"|"+text;
+
+                }
+                if(BMI>=19.1 && BMI<25.8)
+                {
+                    var text = "Bình Thường";
+                    ketqua.innerText=BMI+"|"+text;
+                }
+                if(BMI>=25.8 && BMI<27.3)
+                {
+                    var text = "Thùa cân nhẹ";
+                    ketqua.innerText=BMI+"|"+text;
+                }
+                if(BMI>=27.3 && BMI<32.3)
+                {
+                    var text = "Trên lý tưởng";
+                    ketqua.innerText=BMI+"|"+text;
+                }
+                if(BMI>=32.3)
+                {
+                    var text = "Béo Phì";
+                    ketqua.innerText=BMI+"|"+text;
+                }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
