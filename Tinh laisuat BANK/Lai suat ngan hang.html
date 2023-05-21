@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính lãi suất ngân hàng </title>
+    <style type="text/css">
+        .canchinh {
+            width: 350px;
+            background-color: aqua;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn_tinh {
+            margin-top: 10px;
+            width: 100px;
+            height: 30px;
+        }
+
+        .btn_tinh:hover {
+            background-color: red;
+            border: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="get">
+
+        <!--day la phan thong tin khoan vay-->
+        <h2>Nhập thông tin khoản vay</h2>
+        <div class="canchinh">
+            <label for="st">1.Số Tiền:</label>
+            <input type="number" name="st" class="sotien">
+        </div>
+        <div class="canchinh">
+            <label for="ls">2.Lãi suất hàng năm %:</label>
+            <input type="number" name="ls" class="laisuat">
+        </div>
+        <div class="canchinh">
+            <label for="st">3.Thời gian trả --Năm--:</label>
+            <input type="number" name="st" class="thoigiantra">
+        </div>
+        <div>
+            <input type="button" value="Tính" class="btn_tinh">
+        </div>
+        <!--day la thong tin phan thanh toan -->
+
+        <h2>Thông tin thanh toán:</h2>
+        <div class="canchinh">
+            <label for="tht">4.Số Tiền trả hàng tháng:</label>
+            <input type="number" name="tht" class="sotientht" disabled="disabled">
+        </div>
+        <div class="canchinh">
+            <label for="tst">5.Tổng số tiền phải trả:</label>
+            <input type="number" name="tst" class="tongsotien" disabled="disabled">
+        </div>
+        <div class="canchinh">
+            <label for="slai">6.Tổng số lãi phải trả:</label>
+            <input type="number" name="slai" class="tongsolai" disabled="disabled">
+        </div>
+
+    </form>
+
+    <script>
+        //chuyen tien te dang vnd
+        const VND = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        });
+        //su kien click
+        var click_Tinh = document.querySelector(".btn_tinh");
+        click_Tinh.onclick = function tinhlaisuat() {
+            //lay ra cac elements de dung trong viec tinh toan
+            var sotienvay = document.querySelector(".sotien").value;
+            var laisuat = document.querySelector(".laisuat").value;
+            var thoigiantra = document.querySelector(".thoigiantra").value;
+            var tongsotientra = document.querySelector(".tongsotien");
+            var sotientht = document.querySelector(".sotientht");
+            var tongsolai = document.querySelector(".tongsolai");
+            //xu ly thong tin 
+            var tongphaitra = Math.pow(sotienvay * (1 + laisuat / 100), thoigiantra);
+            var trahangthang = tongphaitra / (thoigiantra * 12);
+            //tra lai thong tin
+            tongsotientra.value = tongphaitra;
+            sotientht.value = trahangthang;
+            tongsolai.value = tongphaitra - sotienvay;
+        }
+
+
+    </script>
+</body>
+
+</html>
